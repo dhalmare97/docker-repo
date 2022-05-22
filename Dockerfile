@@ -1,9 +1,11 @@
-FROM php:alpine
+#FROM - Image to start building on.
+FROM ubuntu:latest
 
-#### docker:1.11 ####
+#MAINTAINER - Identifies the maintainer of the dockerfile.
+MAINTAINER bill@billdiamond.com
 
-ENV DOCKER_BUCKET get.docker.com
-ENV DOCKER_VERSION 1.11.2
-ENV DOCKER_SHA256 8c2e0c35e3cda11706f54b2d46c2521a6e9026a7b13c7d4b8ae1f3a706fc55e1
+#RUN - Runs a command in the container
+RUN echo "Hello world" > /tmp/hello_world.txt
 
-RUN set -x \
+#CMD - Identifies the command that should be used by default when running the image as a container.
+CMD ["cat", "/tmp/hello_world.txt"]
